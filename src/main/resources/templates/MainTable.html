@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Spring App</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+<table id = "orders">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Manufacturer</th>
+        <th>Price</th>
+        <th>DELETE</th>
+        <th>UPDATE</th>
+    </tr>
+    <tr th:each="data : ${MainTableData}">
+        <td th:text="${data.id}"></td>
+        <td th:text="${data.name}"></td>
+        <td th:text="${data.manufacturer}"></td>
+        <td th:text="${data.price}"></td>
+        <td><a th:href="'/MainTable/' + ${data.id} + '/delete'">DELETE</a></td>
+        <td><a th:href="'/MainTable/' + ${data.id} + '/update'">UPDATE</a></td>
+    </tr>
+</table>
+
+<p><form action = "/MainTable/find" METHOD=POST>
+    <p align = "center">
+        Find by:
+        <select name="column">
+            <option value="id"> Id</option>
+            <option value="name"> Name</option>
+            <option value="manufacturer"> Manufacturer</option>
+            <option value="price"> Price</option>
+        </select> =
+        <input type = "text" name = "data" size = "7">
+        <Input type = "submit"  value = "Find">
+    </p>
+</form></p>
+
+<p align = "center">
+    <button onclick="window.location.href='/MainTable'" type="button">
+        Show Main Page</button>
+    <button onclick="window.location.href='/MainTable/insert'" type="button">
+        New Insert</button>
+</p>
+
+
+</body>
+</html>

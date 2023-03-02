@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Insert Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+    <form action = "/MainTable/insert" METHOD = POST>
+        <p align = "center">
+            Name:
+            <input type = "text" name = "name" maxlength="30" size = "7">
+
+            Manufacturer:
+            <input type = "text" name = "manufacturer" maxlength="30" size = "7">
+
+            Price:
+            <input type="number" min="0" max="999999" step="1" name = "price" size = "7">
+
+        </p>
+        <p align = "center"><Input type = "submit"  value = "Insert"></p>
+    </form>
+
+</body>
+</html>
